@@ -1,4 +1,4 @@
-export enum activityLevel {
+export enum ActivityLevel {
     Sedentary = "sedentary",
     LightlyActive = "lightlyActive",
     ModeratelyActive = "moderatelyActive",
