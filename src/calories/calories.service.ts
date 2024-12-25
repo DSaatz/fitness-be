@@ -12,7 +12,7 @@ export class CaloriesService {
         this.calorieCalculator = new CalorieCalculator();
     }
 
-    caluclateDailyCalories(
+    calculateDailyCalories(
         weight: number,
         bodyFatPercentage: number,
         activityLevel: ActivityLevel,

@@ -16,7 +16,7 @@ export class CaloriesController {
 
     @Post('calculate')
     calculateCalories(@Body() dto: CalculateCaloriesDto) {
-        return this.caloriesService.caluclateDailyCalories(
+        return this.caloriesService.calculateDailyCalories(
             dto.weight,
             dto.bodyFatPercentage,
             dto.activityLevel,
