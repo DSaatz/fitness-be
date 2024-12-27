@@ -1,0 +1,12 @@
+GET http://localhost:3000/workout-plans HTTP/1.1
+
+###
+
+POST http://localhost:3000/workout-plans HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Chest Day",
+  "description": "Focus on chest exercises",
+  "exerciseNames": ["Bench Press"]
+}
