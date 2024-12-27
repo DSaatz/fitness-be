@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { CreateExerciseDto } from './dto/create-exercise.dto';
 import { UpdateExerciseDto } from './dto/update-exercise.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Exercise } from './schemas/exercise.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ExercisesService {
+  constructor(@InjectModel(Exercise.name) private exerciseModel: Model<Exercise>) {}
+
   create(createExerciseDto: CreateExerciseDto) {
-    return 'This action adds a new exercise';
+    const exerciseToSave = new this.exerciseModel(createExerciseDto);
+    return exerciseToSave.save();
   }
 
   findAll() {
-    return `This action returns all exercises`;
+    return this.exerciseModel.find().exec();
   }
 
   findOne(id: number) {

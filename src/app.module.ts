@@ -6,9 +6,14 @@ import { ExercisesModule } from './exercises/exercises.module';
 import { UsersModule } from './users/users.module';
 import { WorkoutPlansModule } from './workout-plans/workout-plans.module';
 import { MacrosModule } from './macros/macros.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
-  imports: [CaloriesModule, ExercisesModule, UsersModule, WorkoutPlansModule, MacrosModule],
+  imports: [CaloriesModule, ExercisesModule, UsersModule, WorkoutPlansModule, MacrosModule,
+    MongooseModule.forRoot(process.env.MONGO_URL)
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
