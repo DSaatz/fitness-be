@@ -1,0 +1,12 @@
+GET http://localhost:3000/exercises HTTP/1.1
+
+###
+
+POST http://localhost:3000/exercises HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Bench Press",
+  "description": "Vertically move up the barbell from your chest until your arms are fully extended",
+  "muscleGroup": "Chest"
+}

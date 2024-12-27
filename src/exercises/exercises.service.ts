@@ -11,7 +11,7 @@ export class ExercisesService {
 
   create(createExerciseDto: CreateExerciseDto) {
     const exerciseToSave = new this.exerciseModel(createExerciseDto);
-    return exerciseToSave.save;
+    return exerciseToSave.save();
   }
 
   findAll() {
