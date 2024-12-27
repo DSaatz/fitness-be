@@ -15,7 +15,7 @@ This backend provides powerful features to support a fitness journey, including:
 
 - **[Nest.js](https://nestjs.com/):** A progressive Node.js framework for building efficient and scalable server-side applications.  
 - **[MongoDB](https://www.mongodb.com/):** A flexible and scalable NoSQL database for data storage.
-- **[Auth0](https://auth0.com/):** a flexible, secure identity platform that provides authentication and authorization solutions for applications, enabling developers to easily integrate user login and access management.
+- **[Auth0](https://auth0.com/):** A flexible, secure identity platform that provides authentication and authorization solutions for applications, enabling developers to easily integrate user login and access management.
 
 ---
 
