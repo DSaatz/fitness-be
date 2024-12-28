@@ -2,7 +2,7 @@
 
 Welcome to the backend repository for my **Fitness App**, a full-stack web project designed to offer a modern fitness app which is platform independent and offers all features needed to reach your goals. 💪📈
 
-This backend provides powerful features to support a fitness journey, including:  
+This App provides powerful features to support a fitness journey, including:  
 ✅ **Calorie Calculator**  
 ✅ **Workout Plan Creation**  
 ✅ **Workout Tracking**  
@@ -21,7 +21,7 @@ This backend provides powerful features to support a fitness journey, including:
 
 ## 💡 Project Idea  
 
-The goal of this project is to master a **TypeScript-based stack** for web development. The backend is built using **Nest.js** and **MongoDB**, while the frontend (check out its own [repository](#)) leverages **Angular** for an amazing user experience.
+The goal of this project is to master a **TypeScript-based stack** for web development. The backend is built using **Nest.js** and **MongoDB**, while the frontend (check out its own [repository](https://github.com/DSaatz/fitness-frontend)) leverages **Angular** for an amazing user experience.
 
 By combining **fitness** and **coding**, this project is a reflection of my two passions, offering an app that’s both fun to build and practical to use. 💻❤️💪
 
