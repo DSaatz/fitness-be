@@ -1,0 +1,16 @@
+POST http://localhost:3000/macros/calculate HTTP/1.1
+Content-Type: application/json
+
+{"calories": 2000, "weight": 100}
+
+### proves that endpoints are working
+
+POST http://localhost:3000/calories/calculate HTTP/1.1
+Content-Type: application/json
+
+{
+    "weight": 100,
+    "bodyFatPercentage": 20,
+    "activityLevel": "sedentary",
+    "dietGoal": "cut"
+}

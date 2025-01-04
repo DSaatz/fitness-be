@@ -10,3 +10,10 @@ content-type: application/json
   "description": "Vertically move up the barbell from your chest until your arms are fully extended",
   "muscleGroup": "Chest"
 }
+
+### Search Exercises
+GET http://localhost:3000/exercises/search?term=Bench Press HTTP/1.1
+
+### searching for exercises that don't exist returns empty array
+
+GET http://localhost:3000/exercises/search?term=Dog HTTP/1.1 

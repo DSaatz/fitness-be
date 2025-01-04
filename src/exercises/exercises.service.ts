@@ -14,6 +14,10 @@ export class ExercisesService {
     return exerciseToSave.save();
   }
 
+  search(term: string) {
+    return this.exerciseModel.find({ name: { $regex: term, $options: 'i' } }).exec();
+  }
+
   findAll() {
     return this.exerciseModel.find().exec();
   }

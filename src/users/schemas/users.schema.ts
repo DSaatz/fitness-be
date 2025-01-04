@@ -16,7 +16,7 @@ export class User{
     @Prop()
     isAdmin: boolean;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'WorkoutPlan' })
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'WorkoutPlan' }], default: [] })
     workoutPlans: WorkoutPlan[];
 
     @Prop()

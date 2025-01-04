@@ -15,6 +15,14 @@ export class WorkoutPlan {
 
     @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Exercise' }])
     exercises: Exercise[];
+    _id: mongoose.Types.ObjectId;
+}
+
+export interface WorkoutPlan {
+    name: string;
+    description: string;
+    exercises: Exercise[];
+    _id: mongoose.Types.ObjectId;
 }
 
 export const WorkoutPlansSchema = SchemaFactory.createForClass(WorkoutPlan);

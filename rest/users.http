@@ -1,5 +1,9 @@
 GET http://localhost:3000/users HTTP/1.1
 
+### Get user by ID (currently not working)
+
+GET  http://localhost:3000/users/676d9daa7819f6e4d91baabc HTTP/1.1
+
 ###
 
 POST http://localhost:3000/users HTTP/1.1
@@ -9,4 +13,21 @@ content-type: application/json
   "name": "John Doe",
   "email": "example@mail.com",
   "isAdmin": "false"
+}
+
+### Add Workoutplan
+
+POST http://localhost:3000/users/676d9daa7819f6e4d91baabc/workout-plan
+content-type: application/json
+
+{
+  "workoutPlanId": "676eb5d868a5f64e887f184c"
+}
+
+### Remove Workoutplan
+DELETE  http://localhost:3000/users/676d9daa7819f6e4d91baabc/workout-plan
+content-type: application/json
+
+{
+  "workoutPlanId": "676eb5d868a5f64e887f184c"
 }

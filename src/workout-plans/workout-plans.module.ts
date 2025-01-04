@@ -13,6 +13,7 @@ import { Exercise, ExerciseSchema } from '../exercises/schemas/exercise.schema';
     ])
   ],
   controllers: [WorkoutPlansController],
-  providers: [WorkoutPlansService]
+  providers: [WorkoutPlansService],
+  exports: [MongooseModule.forFeature([{ name: WorkoutPlan.name, schema: WorkoutPlansSchema }])]
 })
 export class WorkoutPlansModule {}
