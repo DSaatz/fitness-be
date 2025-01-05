@@ -14,6 +14,9 @@ content-type: application/json
 ### Search Exercises
 GET http://localhost:3000/exercises/search?term=Bench Press HTTP/1.1
 
+### Search Exercises (all / empty search)
+GET http://localhost:3000/exercises/search?term= HTTP/1.1
+
 ### searching for exercises that don't exist returns empty array
 
 GET http://localhost:3000/exercises/search?term=Dog HTTP/1.1 

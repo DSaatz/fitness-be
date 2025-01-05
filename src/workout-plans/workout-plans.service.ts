@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { WorkoutPlan } from './schemas/workout-plans.schema';
 import { Exercise } from '../exercises/schemas/exercise.schema';
 
@@ -11,23 +11,32 @@ export class WorkoutPlansService {
     @InjectModel(Exercise.name) private exerciseModel: Model<Exercise>,
   ) {}
 
-  async create(createWorkoutPlanDto: { name: string; description: string; exerciseNames: string[] }) {
-    const exercises = await this.exerciseModel
-      .find({ name: { $in: createWorkoutPlanDto.exerciseNames } })
-      .exec();
-
-    if (!exercises.length) {
-      throw new NotFoundException('No exercises found with the provided names');
+  async create(createWorkoutPlanDto: { name: string; description: string; exercises: string[] }) {
+    if (!Array.isArray(createWorkoutPlanDto.exercises) || !createWorkoutPlanDto.exercises.length) {
+      throw new Error('Exercises must be a non-empty array');
     }
-
+  
+    const exerciseIds = createWorkoutPlanDto.exercises.map((id) => new Types.ObjectId(id));
+    console.log('Converted exercise IDs:', exerciseIds);
+  
+    const exercises = await this.exerciseModel
+      .find({ _id: { $in: exerciseIds } })
+      .exec();
+  
+    if (!exercises.length) {
+      throw new NotFoundException('No exercises found with the provided IDs');
+    }
+  
     const workoutPlan = new this.workoutPlanModel({
       name: createWorkoutPlanDto.name,
       description: createWorkoutPlanDto.description,
-      exercises: exercises.map(exercise => exercise._id),
+      exercises: exerciseIds,
     });
-
+  
     return workoutPlan.save();
   }
+  
+  
 
   async findAll() {
     return this.workoutPlanModel.find().populate('exercises').exec();
