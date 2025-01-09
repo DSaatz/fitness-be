@@ -9,6 +9,7 @@ import { MacrosModule } from './macros/macros.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as dotenv from 'dotenv';
 import { ConfigModule } from '@nestjs/config';
+import { JourneyModule } from './journey/journey.module';
 dotenv.config();
 
 @Module({
@@ -17,6 +18,7 @@ dotenv.config();
       ConfigModule.forRoot({
         isGlobal: true,
       }),
+      JourneyModule,
     
   ],
   controllers: [AppController],
