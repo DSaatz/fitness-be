@@ -16,11 +16,14 @@ export class ProgressDataDto {
     @Type(() => Date)
     date: Date;
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsNumber()
-    value: number;
-}
+    bf?: number;
 
+    @IsOptional()
+    @IsNumber()
+    weight?: number;
+}
 
 export class CreateJourneyDto {
     @IsNotEmpty()

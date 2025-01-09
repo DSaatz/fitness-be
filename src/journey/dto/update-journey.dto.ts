@@ -1,7 +1,10 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreateJourneyDto, ProgressDataDto } from './create-journey.dto';
 import { IsNotEmpty, IsString, ValidateNested, IsDate, IsNumber, IsOptional, ArrayMaxSize } from 'class-validator';
 import { Type } from 'class-transformer';
+import { CreateJourneyDto, ProgressDataDto } from './create-journey.dto';
+
+
+
 
 export class UpdateJourneyDto extends PartialType(CreateJourneyDto) {
         @IsString()
