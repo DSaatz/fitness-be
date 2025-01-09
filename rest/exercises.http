@@ -11,6 +11,18 @@ content-type: application/json
   "muscleGroup": "Chest"
 }
 
+### creating a second exercises for frontend testing
+
+POST http://localhost:3000/exercises HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Pull Up",
+  "description": "Vertically pull yourself up the bar engaging your back muscles",
+  "muscleGroup": "Back"
+}
+
+
 ### Search Exercises
 GET http://localhost:3000/exercises/search?term=Bench Press HTTP/1.1
 
