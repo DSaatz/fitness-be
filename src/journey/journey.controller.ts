@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, UsePipes, ValidationPipe } from '@nestjs/common';
 import { JourneyService } from './journey.service';
 import { CreateJourneyDto } from './dto/create-journey.dto';
 import { UpdateJourneyDto } from './dto/update-journey.dto';
@@ -8,27 +8,29 @@ export class JourneyController {
   constructor(private readonly journeyService: JourneyService) {}
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() createJourneyDto: CreateJourneyDto) {
     return this.journeyService.create(createJourneyDto);
   }
 
   @Get()
   findAll() {
-    return this.journeyService.findAll();
+      return this.journeyService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.journeyService.findOne(+id);
+  @Get(':userId')
+  findOne(@Param('userId') userId: string) {
+    return this.journeyService.findOne(userId);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateJourneyDto: UpdateJourneyDto) {
-    return this.journeyService.update(+id, updateJourneyDto);
+  @Put(':userId')
+  @UsePipes(new ValidationPipe())
+  update(@Param('userId') userId: string, @Body() updateJourneyDto: UpdateJourneyDto) {
+    return this.journeyService.update(userId, updateJourneyDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.journeyService.remove(+id);
+  @Delete(':userId')
+  remove(@Param('userId') userId: string) {
+    return this.journeyService.remove(userId);
   }
 }
