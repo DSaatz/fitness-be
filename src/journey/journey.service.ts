@@ -5,6 +5,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Journey } from './schemas/journey.schema';
 import { Model } from 'mongoose';
 
+//TODO: Implement that new entries are added are sorted by date and that only one entry per day is allowed (if an entry for that day already exists, it should be updated)
+
 @Injectable()
 export class JourneyService {
   constructor(@InjectModel(Journey.name) private journeyModel: Model<Journey>) {}
