@@ -10,6 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as dotenv from 'dotenv';
 import { ConfigModule } from '@nestjs/config';
 import { JourneyModule } from './journey/journey.module';
+import { BlogpostModule } from './blogpost/blogpost.module';
 dotenv.config();
 
 @Module({
@@ -19,6 +20,7 @@ dotenv.config();
         isGlobal: true,
       }),
       JourneyModule,
+      BlogpostModule,
     
   ],
   controllers: [AppController],
