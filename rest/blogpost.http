@@ -1,0 +1,31 @@
+POST http://localhost:3000/blog-posts
+Content-Type: application/json
+
+{
+    "userId": "676d9daa7819f6e4d91baabc",
+    "title": "My First Blog Post",
+    "content": "# Hello World\n\nThis is my first blog post written in markdown.\n\n**It is very exciting**"
+}
+
+###
+
+GET http://localhost:3000/blog-posts
+
+###
+
+GET http://localhost:3000/blog-posts/6782a48ae89e533d2bb4aca7
+
+###
+
+PUT http://localhost:3000/blog-posts/6782a48ae89e533d2bb4aca7
+Content-Type: application/json
+
+{
+    "userId": "676d9daa7819f6e4d91baabc",
+    "title": "My Updated Blog Post",
+    "content": "# Hello World\n\nThis is my updated blog post.\n\n**It has changed**"
+}
+
+### worked
+
+DELETE http://localhost:3000/blog-posts/6782a455e89e533d2bb4aca1

@@ -1,9 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { BlogpostService } from './blogpost.service';
 import { CreateBlogpostDto } from './dto/create-blogpost.dto';
 import { UpdateBlogpostDto } from './dto/update-blogpost.dto';
+import { BlogPost } from './schemas/blogpost.schema';
 
-@Controller('blogpost')
+@Controller('blog-posts')
 export class BlogpostController {
   constructor(private readonly blogpostService: BlogpostService) {}
 
@@ -17,18 +18,18 @@ export class BlogpostController {
     return this.blogpostService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.blogpostService.findOne(+id);
+  @Get(":id")
+  async findOne(@Param("id") id: string) {
+    return this.blogpostService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBlogpostDto: UpdateBlogpostDto) {
-    return this.blogpostService.update(+id, updateBlogpostDto);
+  @Put(":id")
+  async update(@Param("id") id: string, @Body() blogPost: BlogPost) {
+     return this.blogpostService.update(id, blogPost);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.blogpostService.remove(+id);
+   @Delete(":id")
+  async remove(@Param("id") id:string) {
+    return this.blogpostService.remove(id)
   }
 }

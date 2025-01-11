@@ -1,26 +1,32 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBlogpostDto } from './dto/create-blogpost.dto';
 import { UpdateBlogpostDto } from './dto/update-blogpost.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { BlogPost, BlogPostDocument } from './schemas/blogpost.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class BlogpostService {
-  create(createBlogpostDto: CreateBlogpostDto) {
-    return 'This action adds a new blogpost';
+  constructor(@InjectModel(BlogPost.name) private blogPostModel: Model<BlogPostDocument>) {}
+  async create(createBlogpostDto: CreateBlogpostDto) {
+    const blogpostToSave = new this.blogPostModel(createBlogpostDto);
+    return blogpostToSave.save();
   }
 
-  findAll() {
-    return `This action returns all blogpost`;
+  async findAll() {
+    return this.blogPostModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} blogpost`;
+  async findOne(id: string): Promise<BlogPostDocument | null> {
+    return this.blogPostModel.findById(id).exec();
   }
 
-  update(id: number, updateBlogpostDto: UpdateBlogpostDto) {
-    return `This action updates a #${id} blogpost`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} blogpost`;
-  }
+  async update(id: string, blogPost: BlogPost): Promise<BlogPostDocument | null> {
+    return this.blogPostModel
+    .findByIdAndUpdate(id,blogPost, {new: true})
+    .exec();
+ }
+ async remove(id: string): Promise<BlogPostDocument | null>{
+   return this.blogPostModel.findByIdAndDelete(id).exec();
+ }
 }
