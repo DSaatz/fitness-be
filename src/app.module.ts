@@ -11,6 +11,7 @@ import * as dotenv from 'dotenv';
 import { ConfigModule } from '@nestjs/config';
 import { JourneyModule } from './journey/journey.module';
 import { BlogpostModule } from './blogpost/blogpost.module';
+import { ExerciseRecordModule } from './exercise-record/exercise-record.module';
 dotenv.config();
 
 @Module({
@@ -21,6 +22,7 @@ dotenv.config();
       }),
       JourneyModule,
       BlogpostModule,
+      ExerciseRecordModule,
     
   ],
   controllers: [AppController],

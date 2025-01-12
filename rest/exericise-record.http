@@ -1,0 +1,39 @@
+POST http://localhost:3000/exercise-record
+Content-Type: application/json
+
+{
+    "userId": "676d9daa7819f6e4d91baabc",
+    "exerciseId": "676eaa9e3799600f56d628d4",
+    "weight": 100,
+    "reps": 10
+}
+
+###
+
+GET http://localhost:3000/exercise-record
+
+###
+
+GET http://localhost:3000/exercise-record/6783ed1afb64d11b32f37fe0
+
+### update does not work
+### Update an existing Exercise Record (replace with actual ID)
+PUT http://localhost:3000/exercise-record/6783ed1afb64d11b32f37fe0
+Content-Type: application/json
+
+{
+  "weight": 230,
+    "reps": 5
+}
+
+
+
+###
+
+### delete worked
+
+DELETE http://localhost:3000/exercise-record/6783e4bd0fe0d5c790be1d07
+
+###
+
+GET http://localhost:3000/exercise-record/user/676d9daa7819f6e4d91baabc
