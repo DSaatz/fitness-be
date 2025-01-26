@@ -1,0 +1,3 @@
+# Search for a product (success)
+GET http://localhost:3000/nutrition-info/search?searchTerm=apple
+Content-Type: application/json

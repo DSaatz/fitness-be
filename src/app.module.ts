@@ -12,6 +12,7 @@ import { ConfigModule } from '@nestjs/config';
 import { JourneyModule } from './journey/journey.module';
 import { BlogpostModule } from './blogpost/blogpost.module';
 import { ExerciseRecordModule } from './exercise-record/exercise-record.module';
+import { NutritionInfoModule } from './nutrition-info/nutrition-info.module';
 dotenv.config();
 
 @Module({
@@ -23,6 +24,7 @@ dotenv.config();
       JourneyModule,
       BlogpostModule,
       ExerciseRecordModule,
+      NutritionInfoModule
     
   ],
   controllers: [AppController],
